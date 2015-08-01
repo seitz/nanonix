@@ -1,5 +1,6 @@
 syntax "nix" "\.nix$"
 
+
 icolor brightgreen "^[0-9A-Z_]+\(\)"
 color green "\<(break|case|continue|do|done|elif|else|esac|exit|fi|for|function|if|in|read|return|select|shift|then|time|until|while)\>"
 color green "\<(declare|eval|exec|export|let|local)\>"
@@ -23,11 +24,12 @@ color green "rec"
 
 # Strings.
 color brightyellow ""(\\.|[^"])*"" "'(\\.|[^'])*'"
+
+icolor brightyellow start="Description = ''" end="''"
+icolor white "Description = "
+color green "="
+
 color brightred "\$\{.*\}"
-
-#color brightyellow "longDescription[\s]*=[\s]*(''.*'')"
-color brightyellow "longDescription = ''([\S|\s|\n]*)''"
-
 
 # Comments.
 color cyan "(^|[[:space:]])#.*$"
