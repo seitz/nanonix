@@ -19,15 +19,21 @@ color green "abort|import|inherit|with\s"
 color green "rec"
 color green "assert"
 
-# Strings.
+#Strings.
 color brightyellow ""(\\.|[^"])*"" "'(\\.|[^'])*'"
 
 icolor brightyellow start="Description = ''" end="''"
+
+#Url
+icolor brightyellow start="url =" end=";"
+
+#Remove Color from these:
 icolor white "Description = "
-color green "="
+icolor white "url ="
 
 #embedet nixstuff
 color brightred "\$\{.*\}"
+color green "=|;"
 
 # Bash basic variable names (no braces).
 color brightred "\$[-0-9@*#?$!]" "\$[[:alpha:]_][[:alnum:]_]*"
@@ -38,7 +44,7 @@ color brightred "\$\{[#!]?([-@*#?$!]|[0-9]+|[[:alpha:]_][[:alnum:]_]*)(\[([[:spa
 
 # Comments.
 color cyan "(^|[[:space:]])#.*$"
-
+color cyan start="/\*" end="\*/"
 
 # Trailing whitespace.
 #color ,green "[[:space:]]+$"
