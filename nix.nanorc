@@ -1,6 +1,10 @@
 syntax "nix" "\.nix$"
 
+#numbers & bools
+color magenta "[ |=][0-9]+[;| ]"
+color magenta "true|false|null"
 
+#bashstuff
 icolor brightgreen "^[0-9A-Z_]+\(\)"
 color green "\<(break|case|continue|do|done|elif|else|esac|exit|fi|for|function|if|in|read|return|select|shift|then|time|until|while)\>"
 color green "\<(declare|eval|exec|export|let|local)\>"
@@ -10,17 +14,10 @@ color green "-[Ldefgruwx]\>"
 color green "-(eq|ne|gt|lt|ge|le|s|n|z)\>"
 color brightblue "\<(awk|cat|cd|ch(grp|mod|own)|cp|echo|env|grep|install|ln|make|mkdir|mv|popd|printf|pushd|rm|rmdir|sed|set|tar|touch|umask|unset)\>"
 
-# Basic variable names (no braces).
-color brightred "\$[-0-9@*#?$!]" "\$[[:alpha:]_][[:alnum:]_]*"
-# More complicated variable names; handles braces and replacements and arrays.
-color brightred "\$\{[#!]?([-@*#?$!]|[0-9]+|[[:alpha:]_][[:alnum:]_]*)(\[([[:space:]]*[[:alnum:]_]+[[:space:]]*|@)\])?(([#%/]|:?[-=?+])[^}]*\}|\[|\})"
-
-
-color brightblue "true|false|null"
+#nixstuff
 color green "abort|import|inherit|with\s"
 color green "rec"
-
-
+color green "assert"
 
 # Strings.
 color brightyellow ""(\\.|[^"])*"" "'(\\.|[^'])*'"
@@ -29,7 +26,15 @@ icolor brightyellow start="Description = ''" end="''"
 icolor white "Description = "
 color green "="
 
+#embedet nixstuff
 color brightred "\$\{.*\}"
+
+# Bash basic variable names (no braces).
+color brightred "\$[-0-9@*#?$!]" "\$[[:alpha:]_][[:alnum:]_]*"
+
+# Bash more complicated variable names; handles braces and replacements and arrays.
+color brightred "\$\{[#!]?([-@*#?$!]|[0-9]+|[[:alpha:]_][[:alnum:]_]*)(\[([[:space:]]*[[:alnum:]_]+[[:space:]]*|@)\])?(([#%/]|:?[-=?+])[^}]*\}|\[|\})"
+
 
 # Comments.
 color cyan "(^|[[:space:]])#.*$"
