@@ -25,15 +25,18 @@ color brightyellow ""(\\.|[^"])*"" "'(\\.|[^'])*'"
 icolor brightyellow start="Description = ''" end="''"
 
 #Url
-icolor brightyellow start="url =" end=";"
+icolor yellow start="url =" end=";"
+icolor yellow start="homepage =" end=";"
 
 #Remove Color from these:
 icolor white "Description = "
 icolor white "url ="
+icolor white "homepage ="
 
 #embedet nixstuff
 color brightred "\$\{.*\}"
-color green "=|;"
+color green "=|;|}"
+color brightyellow "\"|'"
 
 # Bash basic variable names (no braces).
 color brightred "\$[-0-9@*#?$!]" "\$[[:alpha:]_][[:alnum:]_]*"
