@@ -1,7 +1,8 @@
 syntax "nix" "\.nix$"
 
 #numbers & bools
-color magenta "[ |=][0-9]+[;| ]"
+color magenta "[ |=|:][ ]*[0-9]+[;| ]"
+color magenta "[ |=|:][ ]*[0-9]+$"
 color magenta "true|false|null"
 
 #bashstuff
@@ -22,14 +23,14 @@ color green "assert"
 #Strings.
 color brightyellow ""(\\.|[^"])*"" "'(\\.|[^'])*'"
 
-icolor brightyellow start="Description = ''" end="''"
+icolor brightyellow start="description =[ ]*''" end="'';"
 
 #Url
 icolor yellow start="url =" end=";"
 icolor yellow start="homepage =" end=";"
 
 #Remove Color from these:
-icolor white "Description = "
+icolor white "description ="
 icolor white "url ="
 icolor white "homepage ="
 
