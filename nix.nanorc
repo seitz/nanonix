@@ -24,10 +24,11 @@ color green "assert"
 color brightyellow ""(\\.|[^"])*"" "'(\\.|[^'])*'"
 
 icolor brightyellow start="description =[ ]*''" end="'';"
+icolor brightyellow start="description =[ ]*$" end="'';"
 
 #Url
-icolor yellow start="url =" end=";"
-icolor yellow start="homepage =" end=";"
+icolor yellow "url =.*"
+icolor yellow "homepage =.*"
 
 #Remove Color from these:
 icolor white "description ="
