@@ -17,9 +17,7 @@ color green "-(eq|ne|gt|lt|ge|le|s|n|z)\>"
 color brightblue "\<(awk|cat|cd|ch(grp|mod|own)|cp|echo|env|grep|install|ln|make|mkdir|mv|popd|printf|pushd|rm|rmdir|sed|set|tar|touch|umask|unset)\>"
 
 #nixstuff
-color green "abort|import|inherit|with\s"
-color green "rec"
-color green "assert"
+color green "(abort|import|inherit|with|or|rec|assert)( |$)"
 
 #Strings.
 color brightyellow ""(\\.|[^"])*"" "'(\\.|[^'])*'"
@@ -28,17 +26,17 @@ icolor brightyellow start="description =[ ]*''" end="'';"
 icolor brightyellow start="description =[ ]*$" end="'';"
 
 #Url
-icolor yellow "url =.*"
+icolor yellow " url =.*"
 icolor yellow "homepage =.*"
 
 #Remove Color from these:
 icolor white "description ="
-icolor white "url ="
+icolor white " url ="
 icolor white "homepage ="
 
 #embedet nixstuff
-color brightred "\$\{.*\}"
 color green "=|;|}"
+color brightred "\$\{[^\}]*\}"
 color brightyellow "\"|'"
 
 # Bash basic variable names (no braces).
