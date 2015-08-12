@@ -1,9 +1,10 @@
 syntax "nix" "\.nix$"
 
 #numbers & bools
-color magenta "[ |=|:][ ]*[0-9]+[;| ]"
-color magenta "[ |=|:][ ]*[0-9]+$"
-color magenta "true|false|null"
+color magenta "( |=|:|\[|\))[0-9]+(;| |\]|\)|$)"
+#color magenta "[ |=|:][ ]*[0-9]+$"
+color magenta "[ ][0-9]+[ ]"
+color magenta "( )(true|false|null)(;| |\]|\)|$)"
 
 #bashstuff
 icolor brightgreen "^[0-9A-Z_]+\(\)"
