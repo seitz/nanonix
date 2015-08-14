@@ -1,9 +1,9 @@
 syntax "nix" "\.nix$"
 
 #numbers & bools
-color magenta "( |=|:|\[|\))[0-9]+(;| |\]|\)|$)"
+color magenta "( |=|:|\[|\(|,)[0-9]+(;| |\]|\)|$|,)"
 #color magenta "[ |=|:][ ]*[0-9]+$"
-color magenta "[ ][0-9]+[ ]"
+color magenta " [0-9]+ "
 color magenta "( )(true|false|null)(;| |\]|\)|$)"
 
 #bashstuff
@@ -14,7 +14,7 @@ color green "[{}():;|`$<>!=&\\?]" "(\]|\[)"
 color green "\+\+"
 color green "-[Ldefgruwx]\>"
 color green "-(eq|ne|gt|lt|ge|le|s|n|z)\>"
-color brightblue "\<(awk|cat|cd|ch(grp|mod|own)|cp|echo|env|grep|install|ln|make|mkdir|mv|popd|printf|pushd|rm|rmdir|sed|set|tar|touch|umask|unset)\>"
+color brightblue "\<(awk|cat|cd|ch(grp|mod|own)|cp|echo|env|grep|install|ln|make|mkdir|mv|popd|printf|pushd|rm|rmdir|sed|set|tar|touch|umask|unset)\>( |$)"
 
 #nixstuff
 color green "(abort|import|inherit|with|or|rec|assert)( |$)"
