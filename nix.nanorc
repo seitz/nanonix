@@ -36,8 +36,8 @@ icolor white "url ="
 icolor white "homepage ="
 
 #embedet nixstuff
-color brightred "\$\{.*\}"
 color green "=|;|}"
+color brightred "\$\{.*\}"
 color brightyellow "\"|'"
 
 # Bash basic variable names (no braces).
