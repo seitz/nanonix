@@ -1,10 +1,23 @@
 syntax "nix" "\.nix$"
 
 #numbers & bools
-color magenta "( |=|:|\[|\(|,)[0-9]+(;| |\]|\)|$|,)"
+color brightmagenta "( |=|:|\[|\(|,)[0-9]+(;| |\]|\)|$|,)"
 #color magenta "[ |=|:][ ]*[0-9]+$"
-color magenta " [0-9]+ "
-color magenta "( )(true|false|null)(;| |\]|\)|$)"
+color brightmagenta " [0-9]+ "
+color brightmagenta "( )(true|false|null)(;| |\]|\)|$)"
+
+#colorize lib.functions
+color magenta "(^| |\(|[|{|}|]|\))(fixMergeModules|mapAttrsRecursiveCond|removePrefix|add|fixedPoints|mapAttrsToList|removeSuffix|addContextFrom|fixedWidthNumber|mapDerivationAttrset|replaceChars|addErrorContext|fixedWidthString|mapNullable|replaceStrings|addErrorContextToAttrs|fixupOptionType|matchAttrs|reverseList|addMetaAttrs|flatten|max|runTests|all|flip|maybeAttr|scrubOptionValue|and|fold|maybeAttrNullable|seq|any|foldArgs|maybeEnv|setAttr|appendToName|foldAttrs|mergeAttrBy|setAttrByPath|applyIfFunction|foldl|mergeAttrByFunc|setAttrMerge|attrByPath|foldl'|mergeAttrs|setFunctionArgs|attrNames|foldr|mergeAttrsByFuncDefaults|setName|attrNamesToStr|fullDepEntry|mergeAttrsByFuncDefaultsClean|setType|attrVals|functionArgs|mergeAttrsConcatenateValues|showFiles|attrValues|genAttrs|mergeAttrsNoOverride|showOption|attrsets|genList|mergeAttrsWithFunc|showVal|bitAnd|generators|mergeDefaultOption|singleton|bitNot|genericClosure|mergeDefinitions|sort|bitOr|getAttr|mergeEqualOption|sortProperties|bitXor|getAttrFromPath|mergeModules|sourceByRegex|boolToString|getBin|mergeModules'|sourceFilesBySuffices|callPackageWith|getDev|mergeOneOption|sources|callPackagesWith|getFiles|mergeOptionDecls|splitByAndCompare|canCleanSource|getLib|meta|splitString|catAttrs|getOutput|min|stringAfter|checkFlag|getValue|misc|stringAsChars|checkReqs|getValues|mkAfter|stringLength|chooseDevOutputs|getVersion|mkAliasAndWrapDefinitions|stringToCharacters|cleanSource|groupBy|mkAliasDefinitions|strings|cleanSourceFilter|groupBy'|mkAliasOptionModule|stringsWithDeps|cleanSourceWith|hasAttr|mkAssert|sub|closeModules|hasAttrByPath|mkBefore|sublist|closePropagation|hasPrefix|mkChangedOptionModule|substring|collect|hasSuffix|mkDefault|subtractLists|commitIdFromGitRepo|head|mkEnableOption|systems|compare|hiPrio|mkFixStrictness|tail|compareLists|hiPrioSet|mkForce|take|composeExtensions|hydraJob|mkIf|testAllTrue|composedArgsAndFun|id|mkMerge|textClosureList|concat|ifEnable|mkMergedOptionModule|textClosureMap|concatImapStrings|imap|mkOption|toDerivation|concatImapStringsSep|imap0|mkOptionDefault|toInt|concatLists|imap1|mkOptionType|toList|concatMap|importJSON|mkOrder|toLower|concatMapStrings|inNixShell|mkOverride|toUpper|concatMapStringsSep|info|mkRemovedOptionModule|toposort|concatStrings|init|mkRenamedOptionModule|traceCall|concatStringsSep|innerClosePropagation|mkSinkUndeclaredOptions|traceCall2|condConcat|innerModifySumArgs|mkStrict|traceCall3|const|intersectLists|mkVMOverride|traceCallXml|count|intersperse|mod|traceIf|crossLists|isAttrs|modifySumArgs|traceSeq|customisation|isBool|modules|traceSeqN|debug|isDerivation|mutuallyExclusive|traceShowVal|deepSeq|isFunction|nameFromURL|traceShowValMarked|defaultFunctor|isInt|nameValuePair|traceVal|defaultMerge|isList|naturalSort|traceValFn|defaultMergeArg|isOption|nixType|traceValIfNot|defaultOverridableDelayableArgs|isOptionType|nixpkgsVersion|traceValSeq|defaultTypeMerge|isStorePath|noDepEntry|traceValSeqFn|dischargeProperties|isString|nvs|traceValSeqN|doRename|isType|optionAttrSetToDocList|traceValSeqNFn|dontDistribute|last|optionAttrSetToDocList'|traceXMLVal|drop|lazyGenericClosure|optional|traceXMLValMarked|elem|length|optionalAttrs|trivial|elemAt|lessThan|optionalString|types|enableFeature|licenses|optionals|unifyModuleSyntax|enableFeatureAs|listDfs|options|uniqList|escape|listToAttrs|or|uniqListExt|escapeShellArg|lists|overridableDelayableArgs|unique|escapeShellArgs|literalExample|overrideDerivation|unknownModule|evalModules|lowPrio|overrideExisting|unpackSubmodule|evalOptionValue|lowPrioSet|packEntry|updateName|extend|lowerChars|packSubmodule|upperChars|extendDerivation|maintainers|partition|version|extends|makeBinPath|pathExists|versionAtLeast|fetchers|makeExtensible|pathHasContext|versionOlder|fileContents|makeExtensibleWithCustomName|pathIsDirectory|versions|filesystem|makeLibraryPath|pathType|warn|filter|makeOverridable|platforms|withFeature|filterAttrs|makePerlPath|prepareDerivationArgs|withFeatureAs|filterAttrsRecursive|makeScope|pushDownProperties|zip|filterModules|makeSearchPath|range|zipAttrs|filterOverrides|makeSearchPathOutput|readFile|zipAttrsWith|findFirst|mapAttrs|readPathsFromFile|zipAttrsWithNames|findSingle|mapAttrs'|recursiveUpdate|zipLists|fix|mapAttrsFlatten|recursiveUpdateUntil|zipListsWith|fix'|mapAttrsRecursive|remove|zipWithNames)( |$)"
+
+#colorize builtins.functions
+color magenta "(^| |\(|[|{|}|]|\))(abort|functionArgs|pathExists|add|genList|placeholder|addErrorContext|genericClosure|readDir|all|getAttr|readFile|any|getEnv|removeAttrs|attrNames|hasAttr|replaceStrings|attrValues|hasContext|scopedImport|baseNameOf|hashString|seq|head|sort|catAttrs|import|split|compareVersions|intersectAttrs|splitVersion|concatLists|isAttrs|storeDir|concatStringsSep|isBool|storePath|currentSystem|isFloat|stringLength|currentTime|isFunction|sub|deepSeq|isInt|substring|derivation|isList|tail|derivationStrict|isNull|throw|dirOf|isString|toFile|div|langVersion|toJSON|elem|length|toPath|elemAt|lessThan|toString|false|listToAttrs|toXML|fetchGit|map|trace|fetchMercurial|match|true|fetchTarball|mul|tryEval|fetchurl|nixPath|typeOf|filter|nixVersion|unsafeDiscardOutputDependency|filterSource|null|unsafeDiscardStringContext|findFile|parseDrvName|unsafeGetAttrPos|foldl'|partition|valueSize|fromJSON|path)( |$)"
+
+#Url
+icolor yellow " url =.*"
+icolor yellow "homepage =.*"
+
+#Make atributenames grey
+color white ".* = "
 
 #bashstuff
 icolor brightgreen "^[0-9A-Z_]+\(\)"
@@ -25,17 +38,8 @@ color brightyellow ""(\\.|[^"])*"" "'(\\.|[^'])*'"
 icolor brightyellow start="description =[ ]*''" end="'';"
 icolor brightyellow start="description =[ ]*$" end="'';"
 
-#Url
-icolor yellow " url =.*"
-icolor yellow "homepage =.*"
-
-#Remove Color from these:
-icolor white "description ="
-icolor white " url ="
-icolor white "homepage ="
-
 #embedet nixstuff
-color green "=|;|}"
+color green "=|;|}|\."
 color brightred "\$\{[^\}]*\}"
 color brightyellow "\"|'"
 
@@ -51,5 +55,5 @@ color cyan "(^|[[:space:]])#.*$"
 color cyan start="/\*" end="\*/"
 
 # Trailing whitespace.
-#color ,green "[[:space:]]+$"
+color ,green "[[:space:]]+$"
 
