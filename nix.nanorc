@@ -37,6 +37,7 @@ color brightyellow ""(\\.|[^"])*"" "'(\\.|[^'])*'"
 
 icolor brightyellow start="description =[ ]*''" end="'';"
 icolor brightyellow start="description =[ ]*$" end="'';"
+icolor white "description ="
 
 #embedet nixstuff
 color green "=|;|}|\."
