@@ -33,16 +33,16 @@ color brightblue "\<(awk|cat|cd|ch(grp|mod|own)|cp|echo|env|grep|install|ln|make
 color green "(abort|import|inherit|with|or|rec|assert)( |$)"
 
 #Strings.
-color brightyellow ""(\\.|[^"])*"" "'(\\.|[^'])*'"
+color yellow ""(\\.|[^"])*"" "'(\\.|[^'])*'"
 
-icolor brightyellow start="description =[ ]*''" end="'';"
-icolor brightyellow start="description =[ ]*$" end="'';"
+icolor yellow start="description =[ ]*''" end="'';"
+icolor yellow start="description =[ ]*$" end="'';"
 icolor white "description ="
 
 #embedet nixstuff
 color green "=|;|}|\."
 color brightred "\$\{[^\}]*\}"
-color brightyellow "\"|'"
+color yellow "\"|'"
 
 # Bash basic variable names (no braces).
 color brightred "\$[-0-9@*#?$!]" "\$[[:alpha:]_][[:alnum:]_]*"
