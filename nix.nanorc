@@ -12,12 +12,18 @@ color magenta "(^| |\(|[|{|}|]|\))(fixMergeModules|mapAttrsRecursiveCond|removeP
 #colorize builtins.functions
 color magenta "(^| |\(|[|{|}|]|\))(abort|functionArgs|pathExists|add|genList|placeholder|addErrorContext|genericClosure|readDir|all|getAttr|readFile|any|getEnv|removeAttrs|attrNames|hasAttr|replaceStrings|attrValues|hasContext|scopedImport|baseNameOf|hashString|seq|head|sort|catAttrs|import|split|compareVersions|intersectAttrs|splitVersion|concatLists|isAttrs|storeDir|concatStringsSep|isBool|storePath|currentSystem|isFloat|stringLength|currentTime|isFunction|sub|deepSeq|isInt|substring|derivation|isList|tail|derivationStrict|isNull|throw|dirOf|isString|toFile|div|langVersion|toJSON|elem|length|toPath|elemAt|lessThan|toString|false|listToAttrs|toXML|fetchGit|map|trace|fetchMercurial|match|true|fetchTarball|mul|tryEval|fetchurl|nixPath|typeOf|filter|nixVersion|unsafeDiscardOutputDependency|filterSource|null|unsafeDiscardStringContext|findFile|parseDrvName|unsafeGetAttrPos|foldl'|partition|valueSize|fromJSON|path)( |$)"
 
+#nix stuff
+color green "=|;|}|\."
+color green "(abort|import|inherit|with|or|rec|assert)( |$)"
+#nix strings
+color yellow "\"|'"
+
 #Url
 icolor yellow " url =.*"
 icolor yellow "homepage =.*"
 
 #Make atributenames grey
-color white ".* = "
+color white ".* =( |$)"
 
 #bashstuff
 icolor brightgreen "^[0-9A-Z_]+\(\)"
@@ -29,9 +35,6 @@ color green "-[Ldefgruwx]\>"
 color green "-(eq|ne|gt|lt|ge|le|s|n|z)\>"
 color brightblue "\<(awk|cat|cd|ch(grp|mod|own)|cp|echo|env|grep|install|ln|make|mkdir|mv|popd|printf|pushd|rm|rmdir|sed|set|tar|touch|umask|unset)\>( |$)"
 
-#nixstuff
-color green "(abort|import|inherit|with|or|rec|assert)( |$)"
-
 #Strings.
 color yellow ""(\\.|[^"])*"" "'(\\.|[^'])*'"
 
@@ -40,9 +43,7 @@ icolor yellow start="description =[ ]*$" end="'';"
 icolor white "description ="
 
 #embedet nixstuff
-color green "=|;|}|\."
 color brightred "\$\{[^\}]*\}"
-color yellow "\"|'"
 
 # Bash basic variable names (no braces).
 color brightred "\$[-0-9@*#?$!]" "\$[[:alpha:]_][[:alnum:]_]*"
@@ -50,11 +51,10 @@ color brightred "\$[-0-9@*#?$!]" "\$[[:alpha:]_][[:alnum:]_]*"
 # Bash more complicated variable names; handles braces and replacements and arrays.
 color brightred "\$\{[#!]?([-@*#?$!]|[0-9]+|[[:alpha:]_][[:alnum:]_]*)(\[([[:space:]]*[[:alnum:]_]+[[:space:]]*|@)\])?(([#%/]|:?[-=?+])[^}]*\}|\[|\})"
 
-
 # Comments.
 color cyan "(^|[[:space:]])#.*$"
 color cyan start="/\*" end="\*/"
 
 # Trailing whitespace.
-color ,green "[[:space:]]+$"
+color green "[[:space:]]+$"
 
