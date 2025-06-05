@@ -53,7 +53,7 @@ color brightred "\$\{[#!]?([-@*#?$!]|[0-9]+|[[:alpha:]_][[:alnum:]_]*)(\[([[:spa
 
 # Comments.
 color cyan "(^|[[:space:]])#.*$"
-color cyan start="/\*" end="\*/"
+color cyan start="(^|[[:space:]])/\*" end="\*/"
 
 # Trailing whitespace.
 color green "[[:space:]]+$"
